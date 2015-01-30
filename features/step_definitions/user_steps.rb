@@ -132,7 +132,7 @@ And /^I follow the "([^\"]*)" link from the last sent email$/ do |link_text|
   doc = Nokogiri("<div>" + email_text + "</div>")
 
   links = doc.css('a')
-  link = links.detect{ |link| link.text == link_text }
+  link = links.detect{ |link| link.text == I18n.t(link_text) }
   link = links.detect{ |link| link.attributes["href"].value.include?(link_text)} unless link
   path = link.attributes["href"].value
   visit URI::parse(path).request_uri
@@ -149,7 +149,7 @@ end
 Then /^I should not see "([^\"]*)" in the last sent email$/ do |text|
   email_text = Devise.mailer.deliveries.first.body.to_s
   email_text = Devise.mailer.deliveries.first.html_part.body.raw_source if email_text.blank?
-  email_text.should_not match(text)
+  email_text.should_not match(I18n.t(text))
 end
 
 When /^"([^\"]+)" has posted a status message with a photo$/ do |email|
@@ -208,6 +208,6 @@ end
 
 And /^I should be able to friend Alice$/ do
   alice = User.find_by_username 'alice'
-  step 'I should see "Add contact"'
+  step 'I should see I18n.t("javascripts.contacts.add_contact")'
   step "I should see \"#{alice.name}\""
 end

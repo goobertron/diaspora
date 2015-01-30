@@ -15,7 +15,7 @@ Feature: following and being followed
     And I expand the publisher
     And I fill in the following:
         | status_message_fake_text    | I am following you    |
-    And I press "Share"
+    And I submit the form
     Then I should see "I am following you" within "#main_stream"
     And I sign out
 
@@ -35,7 +35,7 @@ Feature: following and being followed
         | status_message_fake_text    | I am ALICE    |
     And I press the first ".toggle" within "#publisher"
     And I press the first ".public" within "#publisher"
-    And I press "Share"
+    And I submit the form
     Then I should see "I am ALICE" within "#main_stream"
     And I sign out
 
@@ -57,7 +57,8 @@ Feature: following and being followed
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
     And I add the person to my "Besties" aspect
-    Then I should see a flash message containing "You have started sharing with <script>alert(0)//!"
+    Then I should see I18n.t("javascripts.aspect_dropdown.started_sharing_with") within ".flash_message"
+    And I should see a flash message containing "<script>alert(0)//"
 
   Scenario: seeing non-public posts of someone you follow who also follows you
     When I sign in as "alice@alice.alice"
@@ -89,7 +90,7 @@ Feature: following and being followed
     And I press the first "a" within ".add_aspect"
 
     And I fill in "Name" with "Super People" in the modal window
-    And I press "Create" in the modal window
+    And I submit the form
 
     When I go to the home page
     Then I should have 1 contact in "Super People"
@@ -110,7 +111,7 @@ Feature: following and being followed
     Given I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
 
-    Then I should see "Add contact"
+    Then I should see I18n.t("javascripts.contacts.add_contact")
     Then I should not see a "#mention_button" within "#profile_buttons"
     Then I should not see a "#message_button" within "#profile_buttons"
 
@@ -122,6 +123,6 @@ Feature: following and being followed
     And I add the person to my "Unicorns" aspect
 
     When I go to "bob@bob.bob"'s page
-    Then I should see "All aspects"
+    Then I should see I18n.t("javascripts.aspect_dropdown.all_aspects")
     Then I should see a "#mention_button" within "#profile_buttons"
     Then I should see a "#message_button" within "#profile_buttons"

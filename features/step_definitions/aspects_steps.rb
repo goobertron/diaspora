@@ -44,9 +44,9 @@ When /^I click on "([^"]*)" aspect edit icon$/ do |aspect_name|
 end
 
 When /^I select only "([^"]*)" aspect$/ do |aspect_name|
-  click_link 'My aspects'
+  click_link I18n.t("javascripts.my_aspects")
   within('#aspects_list') do
-    click_link 'Deselect all'
+    click_link I18n.t("javascripts.aspect_navigation.deselect_all")
     current_scope.should have_no_css '.selected'
   end
   step %Q(I select "#{aspect_name}" aspect as well)
@@ -61,7 +61,7 @@ end
 
 When /^I select all aspects$/ do
   within('#aspects_list') do
-    click_link "Select all"
+    click_link I18n.t("javascripts.aspect_navigation.select_all")
   end
 end
 

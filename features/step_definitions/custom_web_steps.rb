@@ -263,6 +263,10 @@ Then /^I should see a flash message containing "(.+)"$/ do |text|
   flash_message_containing? text
 end
 
+Then /^I should see a flash message containing I18n\.t\("(.+)"\)$/ do |text|
+  flash_message_containing? I18n.text
+end
+
 Given /^the reference screenshot directory is used$/ do
   set_screenshot_location 'reference'
 end
@@ -304,3 +308,34 @@ And /^I active the first hovercard after loading the notifications page$/ do
   page.should have_css '.notifications .hovercardable'
   first('.notifications .hovercardable').hover
 end
+
+Then /^(?:|I )should see I18n\.t\((\".+?\"[\s]*)\)(?:[\s]+within[\s]* "([^"]*)")?$/ do |vars, selector|
+  vars.scan(I18n.t(/"([^"]+?)"/)).flatten.each do |text|
+    with_scope(selector) do
+      current_scope.should have_content(text)
+    end
+  end
+end
+
+Then /^(?:|I )should see I18n\.t\(\/([^\/]*)\/\)(?: within "([^"]*)")?$/ do |regexp, selector|
+  regexp = Regexp.new(regexp)
+  with_scope(selector) do
+    page.should have_xpath(I18n.t('//*'), :text => regexp)
+  end
+end
+
+Then /^(?:|I )should not see I18n\.t\((\".+?\"[\s]*)\)(?:[\s]+within[\s]* "([^"]*)")?$/ do |vars,selector|
+  vars.scan(I18n.t(/"([^"]+?)"/)).flatten.each do |text|
+    with_scope(selector) do
+      page.should have_no_content(text)
+    end
+  end
+end
+
+Then /^(?:|I )should not see I18n\.t\(\/([^\/]*)\/\)(?: within "([^"]*)")?$/ do |regexp, selector|
+  regexp = Regexp.new(regexp)
+  with_scope(selector) do
+    page.should have_no_xpath(I18n.t('//*'), :text => regexp)
+  end
+end
+

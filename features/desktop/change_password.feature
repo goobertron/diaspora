@@ -6,7 +6,7 @@ Feature: Change password
     When I go to the users edit page
     And I fill out change password section with my password and "newsecret" and "newsecret"
     And I press "Change password"
-    Then I should see "Password changed"
+    Then I should see I18n.t("users.update.password_changed")
     Then I should be on the new user session page
     When I sign in with password "newsecret"
     Then I should be on the stream page
@@ -16,9 +16,9 @@ Feature: Change password
     Given I am on forgot password page
     When I fill out forgot password form with "forgetful@users.net"
     And I submit forgot password form
-    Then I should see "You will receive an email with instructions"
-    When I follow the "Change my password" link from the last sent email
-    Then I should see "NEW PASSWORD"
+    Then I should see I18n.t("devise.passwords.send_instructions")
+    When I follow the "devise.mailer.reset_password_instructions.change" link from the last sent email
+    Then I should see I18n.t("devise.passwords.edit.change_password")
     When I fill out reset password form with "supersecret" and "supersecret"
     And I submit reset password form
     Then I should be on the stream page
@@ -27,4 +27,4 @@ Feature: Change password
     Given I am on forgot password page
     When I fill out forgot password form with "notanemail"
     And I submit forgot password form
-    Then I should see "No account with this email exists"   
+    Then I should see I18n.t("devise.passwords.new.no_account")
