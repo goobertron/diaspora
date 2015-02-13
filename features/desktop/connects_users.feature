@@ -57,7 +57,7 @@ Feature: following and being followed
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
     And I add the person to my "Besties" aspect
-    Then I should see I18n.t("javascripts.aspect_dropdown.started_sharing_with") within ".flash_message"
+    Then I should see the text for "javascripts.aspect_dropdown.started_sharing_with" within ".flash_message"
     And I should see a flash message containing "<script>alert(0)//"
 
   Scenario: seeing non-public posts of someone you follow who also follows you
@@ -111,7 +111,7 @@ Feature: following and being followed
     Given I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
 
-    Then I should see I18n.t("javascripts.contacts.add_contact")
+    Then I should see the text for "javascripts.contacts.add_contact"
     Then I should not see a "#mention_button" within "#profile_buttons"
     Then I should not see a "#message_button" within "#profile_buttons"
 
@@ -123,6 +123,6 @@ Feature: following and being followed
     And I add the person to my "Unicorns" aspect
 
     When I go to "bob@bob.bob"'s page
-    Then I should see I18n.t("javascripts.aspect_dropdown.all_aspects")
+    Then I should see the text for "javascripts.aspect_dropdown.all_aspects"
     Then I should see a "#mention_button" within "#profile_buttons"
     Then I should see a "#message_button" within "#profile_buttons"

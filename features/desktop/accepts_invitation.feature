@@ -6,7 +6,7 @@ Feature: invitation acceptance
       And I fill in the new user form
       And I submit the form
       Then I should be on the getting started page
-      And I should see I18n.t("users.getting_started.well_hello_there")
+      And I should see the text for "users.getting_started.well_hello_there"
       And I fill in the following:
         | profile_first_name         | O             |
 
@@ -21,7 +21,7 @@ Feature: invitation acceptance
       And I fill in the new user form
       And I submit the form
       Then I should be on the getting started page
-      And I should see I18n.t("users.getting_started.well_hello_there")
+      And I should see the text for "users.getting_started.well_hello_there"
       And I fill in the following:
         | profile_first_name         | O             |
 
