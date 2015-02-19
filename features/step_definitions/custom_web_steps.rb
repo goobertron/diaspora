@@ -76,6 +76,10 @@ Then /^the text area wrapper mobile should be with attachments$/ do
   find("#publisher_textarea_wrapper")["class"].should include("with_attachments")
 end
 
+And /^I mention (?:him|her) $/ do |profile|
+  find('#mention_button').click
+end
+
 And /^I want to mention (?:him|her) from the profile$/ do
   find('#mention_button').click
   within('#mentionModal') do

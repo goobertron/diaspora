@@ -75,10 +75,10 @@
       <img alt="{{current_user.name}}" class="user-menu-avatar" src="{{current_user.avatar.small}}" title="{{current_user.name}}" />
       <a class="user-name" href="#">{{current_user.name}}</a>
     </li>
-    <li class="user-menu-item"><a href="/people/{{current_user.guid}}">{{t "header.profile"}}</a></li>
-    <li class="user-menu-item"><a href="/contacts">{{t "header.contacts"}}</a></li>
-    <li class="user-menu-item"><a href="/user/edit">{{t "header.settings"}}</a></li>
-    <li class="user-menu-item"><a href="/help">{{t "header.help"}}</a></li>
+    <li class="user-menu-item" id="profile"><a href="/people/{{current_user.guid}}">{{t "header.profile"}}</a></li>
+    <li class="user-menu-item" id="contacts"><a href="/contacts">{{t "header.contacts"}}</a></li>
+    <li class="user-menu-item" id="settings"><a href="/user/edit">{{t "header.settings"}}</a></li>
+    <li class="user-menu-item" id="help"><a href="/help">{{t "header.help"}}</a></li>
     {{#if current_user.admin}}
       <li class="user-menu-item"><a href="/admins/user_search">{{t "header.admin"}}</a></li>
     {{/if}}

@@ -20,5 +20,5 @@ And /^I mention Alice in the publisher$/ do
 end
 
 And /^I click on the first user in the mentions dropdown list$/ do
-  find('.mentions-autocomplete-list li', match: :first).click
+  find('.mentions-autocomplete-list ul li', match: :first).click
 end
