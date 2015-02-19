@@ -208,7 +208,7 @@ end
 
 And /^I should be able to friend Alice$/ do
   alice = User.find_by_username 'alice'
-  step 'I should see I18n.t("javascripts.contacts.add_contact")'
+  step 'I should see the text for "javascripts.contacts.add_contact"'
   step "I should see \"#{alice.name}\""
 end
 
