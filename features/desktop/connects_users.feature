@@ -24,7 +24,7 @@ Feature: following and being followed
     And I am on "bob@bob.bob"'s page
     Then I should see "I am following you"
 
-    And I am on the home page
+    When I am on the home page
     Then I should not see "I am following you"
 
   Scenario: seeing public posts of someone you follow

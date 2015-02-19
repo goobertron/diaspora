@@ -8,7 +8,7 @@ Feature: Close account
     Given I am signed in
     When I go to the users edit page
     And I follow "close_account"
-    And I put in my password in "close_account_password" in the modal window
+    And I enter my password into "close_account_password" in the modal window
     And I press "close_account_confirm" in the modal window
     And I confirm the alert
     Then I should be on the new user session page

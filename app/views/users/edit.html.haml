@@ -24,7 +24,7 @@
             = t('.your_handle')
           %p
             %b= current_user.diaspora_handle
-        .span6
+        #change_email.span6
           %h3
             = t('.your_email')
           = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
@@ -40,7 +40,7 @@
       %hr
 
       .row-fluid
-        .span12
+        #change_password.span12
           %h3 
             = t('.change_password')
           = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
@@ -63,7 +63,7 @@
       %hr
 
       .row-fluid
-        .span-12
+        #change_language.span-12
           %h3 
             = t('.change_language')
           = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
@@ -76,9 +76,9 @@
       %hr
 
       .row-fluid
-        .span-12
+        #stream-preferences.span-12
 
-          %h3#stream-preferences
+          %h3
             = t('.stream_preferences')
           = form_for current_user, :url => user_path, :html => { :method => :put } do |f|
             = f.error_messages
@@ -101,9 +101,9 @@
       %hr
 
       .row-fluid
-        .span-12
+        #auto-follow-back-preferences.span-12
       
-          %h3#auto-follow-back-preferences
+          %h3
             = t('.following')
           = form_for current_user, :url => user_path, :html => { :method => :put } do |f|
             = f.error_messages
@@ -122,7 +122,7 @@
       %hr
 
       .row-fluid
-        .span-12
+        #email_preferences.span-12
           %h3 
             = t('.receive_email_notifications')
           = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
@@ -195,7 +195,7 @@
             .small-horizontal-spacer
               = link_to t('.request_export'), export_profile_user_path, :class => "button"
 
-        .span6
+        #close_account.span6
           %h3
             = t('.close_account_text')
           =link_to t('.close_account_text'), '#close_account_pane', :rel => 'facebox', :class => "button", :id => "close_account"

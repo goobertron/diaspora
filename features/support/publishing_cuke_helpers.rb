@@ -90,7 +90,7 @@ module PublishingCukeHelpers
 
   def like_post(post_text)
     within_post(post_text) do
-      click_link 'Like'
+      click_link "Like"
     end
   end
 

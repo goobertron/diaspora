@@ -263,7 +263,7 @@ Then /^I should see a flash message containing "(.+)"$/ do |text|
   flash_message_containing? text
 end
 
-Then /^I should see a flash message containing I18n\.t\("(.+)"\)$/ do |text|
+Then /^I should see a flash message containing the text for "(.+)"$/ do |text|
   flash_message_containing? I18n.text
 end
 
@@ -309,8 +309,8 @@ And /^I active the first hovercard after loading the notifications page$/ do
   first('.notifications .hovercardable').hover
 end
 
-Then /^(?:|I ) should see the text for (".+?"\s*)(?:\s+within\s* "([^"]*)")?$/ do |keys, selector|
-  keys.scan(/"([^"\s]+)"/).map {|match| I18n.t(match.first) }.each do |text|
+Then /^(?:|I )should see the text for (\".+?\"[\s]*)(?:[\s]+within[\s]* "([^"]*)")?$/ do |vars, selector|
+  vars.scan(I18n.t(/"([^"]+?)"/)).flatten.each do |text|
     with_scope(selector)  do
       current_scope.should have_content(text)
     end
@@ -318,7 +318,7 @@ Then /^(?:|I ) should see the text for (".+?"\s*)(?:\s+within\s* "([^"]*)")?$/ d
 end
 
 Then /^(?:|I )should not see the text for (\".+?\"[\s]*)(?:[\s]+within[\s]* "([^"]*)")?$/ do |vars,selector|
-  keys.scan(/"([^"\s]+)"/).map {|match| I18n.t(match.first) }.each do |text|
+  vars.scan(I18n.t(/"([^"]+?)"/)).flatten.each do |text|
     with_scope(selector) do
       current_scope.should have_no_content(text)
     end

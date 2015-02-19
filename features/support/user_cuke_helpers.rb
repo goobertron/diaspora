@@ -76,11 +76,21 @@ module UserCukeHelpers
     fill_in('user_captcha', with: '123456')
   end
 
+  # submit change email section on the user edit page
+  def submit_change_email_form
+    find("#change_email input.button").click
+  end
+
   # fill change password section on the user edit page
   def fill_change_password_section(cur_pass, new_pass, confirm_pass)
     fill_in 'user_current_password', :with => cur_pass
     fill_in 'user_password', :with => new_pass
     fill_in 'user_password_confirmation', :with => confirm_pass
+  end
+
+  # submit change password section on the user edit page
+  def submit_change_password_form
+    find("#change_password input.button").click
   end
 
   # fill forgot password form to get reset password link

@@ -11,7 +11,7 @@ Then /^the first comment field should be closed$/ do
   page.should_not have_selector("#main_stream .stream_element .new_comment", match: :first)
 end
 
-When /^I comment "([^"]*)" on "([^"]*)"$/ do |comment_text, post_text|
+When /^I comment "([^"]*)"(?:[\s]+on[\s]* "([^"]*)")?$/ do |comment_text, post_text|
   comment_on_post(post_text, comment_text)
 end
 
@@ -28,3 +28,6 @@ When /^I comment a lot on "([^"]*)"$/ do |post_text|
   end
 end
 
+And /^I submit the comment$/ do 
+  make_comment
+end

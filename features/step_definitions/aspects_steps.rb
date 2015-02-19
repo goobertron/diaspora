@@ -65,6 +65,12 @@ When /^I select all aspects$/ do
   end
 end
 
+When /^I deselect all aspects$/ do
+  within('#aspects_list') do
+    click_link I18n.t("javascripts.aspect_navigation.deselect_all")
+  end
+end
+
 When /^I add the first person to the aspect$/ do
   find(".contact_add-to-aspect", match: :first).tap do |button|
     button.click

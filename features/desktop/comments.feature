@@ -17,20 +17,18 @@ Feature: commenting
     And I am on "alice@alice.alice"'s page
     Then I should see "Look at this dog"
     When I focus the comment field
-    And I fill in the following:
-        | text            | is that a poodle?    |
-    And I press "Comment"
-    Then I should see "is that a poodle?" within ".comment"
+    When I comment "Is that a poodle?" on "Look at this dog"
+    Then I should see "Is that a poodle?" within ".comment"
     And I should see "less than a minute ago" within ".comment time"
 
   Scenario: delete a comment
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
     Then I should see "Look at this dog"
-    When I comment "is that a poodle?" on "Look at this dog"
+    When I comment "Is that a poodle?" on "Look at this dog"
     And I click to delete the first comment
     And I confirm the alert
-    Then I should not see "is that a poodle?"
+    Then I should not see "Is that a poodle?"
 
   Scenario: expand the comment form in the main stream and an individual aspect stream
     When I sign in as "bob@bob.bob"
@@ -51,23 +49,23 @@ Feature: commenting
     Then I should see "Look at this dog"
     When I follow "less than a minute ago"
     Then I should see "Look at this dog"
-    And I make a show page comment "I think thats a cat"
+    And I make a show page comment "I think that’s a cat"
     Then I should see "less than a minute ago" within "#comments"
     When I go to "alice@alice.alice"'s page
-    Then I should see "I think thats a cat"
+    Then I should see "I think that’s a cat"
 
   Scenario: permalink to comment from within a users stream
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
     Then I should see "Look at this dog"
     When I comment a lot on "Look at this dog"
-    And I focus the comment field
+    When I focus the comment field
     And I fill in the following:
-        | text            | I think thats a cat    |
+        | text            | I think that’s a cat    |
     And I press "Comment"
-    Then I should see "I think thats a cat" within ".comment:last-child"
+    Then I should see "I think that’s a cat" within ".comment:last-child"
     When I follow "less than a minute ago" within ".comment:last-child"
-    Then I should see "I think thats a cat" within ".comment .highlighted"
+    Then I should see "I think that’s a cat" within ".comment .highlighted"
     And I should have scrolled down
 
   Scenario: permalink to comment from a status show page
@@ -77,10 +75,10 @@ Feature: commenting
     When I comment a lot on "Look at this dog"
     When I focus the comment field
     And I fill in the following:
-        | text            | I think thats a cat    |
+        | text            | I think that’s a cat    |
     And I press "Comment"
     When I follow "less than a minute ago" within "span.details.grey"
-    Then I should see "I think thats a cat" within ".comments .comment:last-child"
+    Then I should see "I think that’s a cat" within ".comments .comment:last-child"
     When I follow "less than a minute ago" within ".comments .comment:last-child"
-    Then I should see "I think thats a cat" within ".comments .comment .highlighted"
+    Then I should see "I think that’s a cat" within ".comments .comment .highlighted"
     And I should have scrolled down

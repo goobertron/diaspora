@@ -1,6 +1,6 @@
 @javascript
 Feature: donations
-  In order to accept donation 
+  In order to accept donations 
   As a podmin
   I want a donation box shown on the stream page
 

@@ -211,3 +211,11 @@ And /^I should be able to friend Alice$/ do
   step 'I should see I18n.t("javascripts.contacts.add_contact")'
   step "I should see \"#{alice.name}\""
 end
+
+When /^I submit the change email form$/ do
+  submit_change_email_form
+end
+
+When /^I submit the change password form$/ do
+  submit_change_password_form
+end
