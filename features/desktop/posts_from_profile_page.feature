@@ -18,7 +18,7 @@ Feature: posting from own profile page
       And I append "I want to understand people" to the publisher
       And I select "Family" on the aspect dropdown
 
-      And I press "Share"
+      And I submit the publisher
 
       Then I should see "I want to understand people"
 
@@ -40,7 +40,7 @@ Feature: posting from own profile page
       And I submit the publisher
 
       When I am on the home page
-      Then I should see a "img" within ".stream_element div.photo_attachments"
+      Then I should see an "img" within ".stream_element div.photo_attachments"
       And I should see "who am I?" within ".stream_element"
 
     Scenario: back out of posting a photo-only post

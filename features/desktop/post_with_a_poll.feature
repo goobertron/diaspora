@@ -26,7 +26,8 @@ Feature: posting with a poll
       And I fill in values for the first two options
       And I lose focus 
       Then I should see 3 options
-
+      And I should see a remove icon
+      
     Scenario: delete an option
       Given "#poll_creator_container" is hidden
       When I expand the publisher
@@ -34,7 +35,7 @@ Feature: posting with a poll
       And I fill in values for the first two options
       And I lose focus 
       And I delete the last option
-      Then I should see 2 option
+      Then I should see 2 options
       And I should not see a remove icon
 
     Scenario: post with an attached poll
@@ -46,7 +47,7 @@ Feature: posting with a poll
       And I fill in the following for the options:
           | normal |
           | not normal  |
-      And I press "Share"
+      And I submit the publisher
       Then I should see a ".poll_form" within ".stream_element"
       And I should see a "form" within ".stream_element"
 
@@ -59,13 +60,13 @@ Feature: posting with a poll
       And I fill in the following for the options:
           | normal |
           | not normal  |
-      And I press "Share"
+      And I submit the publisher
 
       And I check the first option
       And I press "Vote" within ".stream_element"
       Then I should see an element ".poll_progress_bar"
       And I should see an element ".percentage"
-      And I should see "1 vote so far" within ".poll_statistic"
+      And I should see the text for "javascripts.poll.count.one" within ".poll_statistic"
 
   Scenario: click to show result
     Given I expand the publisher
@@ -76,7 +77,7 @@ Feature: posting with a poll
     And I fill in the following for the options:
         | normal |
         | not normal  |
-    And I press "Share"
+    And I submit the publisher
     And I press the element ".toggle_result"
     Then I should see an element ".percentage"
 

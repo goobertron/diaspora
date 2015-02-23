@@ -6,6 +6,10 @@ And /^I delete the last option$/ do
   find("#poll_creator_container").all(".poll-answer .remove-answer").first.click
 end
 
+And /^I should see a remove icon$/ do
+  page.should have_css(".remove-answer")
+end
+
 And /^I should not see a remove icon$/ do
   page.should_not have_css(".remove-answer")
 end

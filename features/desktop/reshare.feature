@@ -39,7 +39,7 @@ Feature: public repost
     Given "bob@bob.bob" has a public post with text "reshare this!"
     And I sign in as "alice@alice.alice"
 
-    And I follow "Reshare"
+    And I click on selector "a.reshare"
     And I confirm the alert
     Then I should see a flash message indicating success
     And I should see a flash message containing "successfully"

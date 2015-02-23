@@ -22,9 +22,9 @@ Feature: posting from the main page
       Given ".markdownIndications" is hidden
       And ".options_and_submit" is hidden
       When I expand the publisher
-      Then I should see "You can use Markdown to format your post" within "#publisher-images"
-      Then I should see "All aspects" within ".options_and_submit"
-      Then I should see "Preview" within ".options_and_submit"
+      Then I should see the text for "shared.publisher.formatWithMarkdown" within "#publisher-images"
+      Then I should see the text for "all_aspects" within ".options_and_submit"
+      Then I should see the text for "shared.publisher.preview" within ".options_and_submit"
 
     Scenario: post a text-only message to all aspects
       Given I expand the publisher
@@ -77,26 +77,26 @@ Feature: posting from the main page
       When I write the status message "Look at this dog"
       And I submit the publisher
       And I go to the aspects page
-      Then I should see a "img" within ".stream_element div.photo_attachments"
+      Then I should see an "img" within ".stream_element div.photo_attachments"
       And I should see "Look at this dog" within ".stream_element"
       When I log out
       And I sign in as "alice@alice.alice"
       And I go to "bob@bob.bob"'s page
-      Then I should see a "img" within ".stream_element div.photo_attachments"
+      Then I should see an "img" within ".stream_element div.photo_attachments"
       And I should see "Look at this dog" within ".stream_element"
 
     Scenario: post a photo without text
       Given I expand the publisher
       And I attach "spec/fixtures/button.png" to the publisher
       Then I should see an uploaded image within the photo drop zone
-      When I press "Share"
-      Then I should see a "img" within ".stream_element div.photo_attachments"
+      When I submit the publisher
+      Then I should see an "img" within ".stream_element div.photo_attachments"
       When I go to the aspects page
-      Then I should see a "img" within ".stream_element div.photo_attachments"
+      Then I should see an "img" within ".stream_element div.photo_attachments"
       When I log out
       And I sign in as "alice@alice.alice"
       And I go to "bob@bob.bob"'s page
-      Then I should see a "img" within ".stream_element div.photo_attachments"
+      Then I should see an "img" within ".stream_element div.photo_attachments"
 
     Scenario: back out of posting a photo-only post
       Given I expand the publisher

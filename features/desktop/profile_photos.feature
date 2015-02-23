@@ -12,13 +12,12 @@ Feature: show photos
     Given I expand the publisher
     And I have turned off jQuery effects
     And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
-    And I press "Share"
-    Then I should see a "img" within ".stream_element div.photo_attachments"
+    And I submit the publisher
+    Then I should see an "img" within ".stream_element div.photo_attachments"
 
     Scenario: see my own photos
       When I am on "robert@grimm.grimm"'s page
       #TODO: find out why images don't show on first load
-      And I am on "robert@grimm.grimm"'s page
       And I press the first "#photos_link"
       Then I should be on person_photos page
 

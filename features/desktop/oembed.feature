@@ -35,7 +35,7 @@ Feature: oembed
     Given I expand the publisher
     When I click the publisher and post "http://farm4.static.flickr.com/3123/2341623661_7c99f48bbf_m.jpg"
     And I follow "My aspects"
-    Then I should see a "img" within ".stream_element"
+    Then I should see an "img" within ".stream_element"
 
   Scenario: Post an unsupported text link
     Given I expand the publisher

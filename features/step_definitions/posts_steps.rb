@@ -42,6 +42,10 @@ And /^I submit the publisher$/ do
   submit_publisher
 end
 
+And /^I preview the post$/ do
+  preview_post
+end
+    
 When /^I click on the first block button/ do
   find(".stream_element", match: :first).hover
   find(".block_user").click

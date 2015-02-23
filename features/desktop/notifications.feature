@@ -18,9 +18,11 @@ Feature: Notifications
     When I sign in as "alice@alice.alice"
     And I follow "Notifications" in the header
     Then the notification dropdown should be visible
-    Then I should see "started sharing with you"
+    And I should see "Robert"
+    And I should see the text for "notifications.started_sharing.sharing"
     And I go to the notifications page
-    Then I should see "started sharing with you"
+    And I should see "Robert"
+    And I should see the text for "notifications.started_sharing.sharing"
     And I should have 1 email delivery
 
   Scenario: someone re-shares my post
@@ -28,13 +30,13 @@ Feature: Notifications
     And "alice@alice.alice" has a public post with text "check this out!"
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
-    And I follow "Reshare"
+    And I click on selector "a.reshare"
     And I confirm the alert
     And I sign out
     When I sign in as "alice@alice.alice"
     And I follow "Notifications" in the header
     Then the notification dropdown should be visible
-    Then I should see "reshared your post"
+    Then I should see the text for "notifications.reshared.one"
     And I should have 1 email delivery
 
   Scenario: someone likes my post
@@ -42,12 +44,12 @@ Feature: Notifications
     And "alice@alice.alice" has a public post with text "check this out!"
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
-    And I follow "Like"
+    And I click on selector "a.like"
     And I sign out
     When I sign in as "alice@alice.alice"
     And I follow "Notifications" in the header
     Then the notification dropdown should be visible
-    Then I should see "liked your post"
+    Then I should see the text for "notifications.liked.one"
     And I should have 1 email delivery
 
   Scenario: someone comments on my post
@@ -64,7 +66,7 @@ Feature: Notifications
     When I sign in as "alice@alice.alice"
     And I follow "Notifications" in the header
     Then the notification dropdown should be visible
-    Then I should see "commented on your post"
+    Then I should see the text for "notifications.commented.one"
     And I should have 1 email delivery
 
   Scenario: someone mentioned me in their post
@@ -73,7 +75,7 @@ Feature: Notifications
     When I sign in as "bob@bob.bob"
     And I follow "Notifications" in the header
     Then the notification dropdown should be visible
-    Then I should see "mentioned you in the post"
+    Then I should see the text for "notifications.mentioned.one"
     And I should have 1 email delivery
 
   Scenario: filter notifications
@@ -81,11 +83,11 @@ Feature: Notifications
     And Alice has a post mentioning Bob
     When I sign in as "bob@bob.bob"
     And I am on the notifications page
-    Then I should see "mentioned you in the post"
+    Then I should see the text for "notifications.mentioned.one"
     When I filter notifications by likes
-    Then I should not see "mentioned you in the post"
+    Then I should not see the text for "notifications.mentioned.one"
     When I filter notifications by mentions
-    Then I should see "mentioned you in the post"
+    Then I should see the text for "notifications.mentioned.one"
 
   Scenario: show aspect dropdown in user hovercard
     When I sign in as "bob@bob.bob"

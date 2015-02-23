@@ -42,7 +42,7 @@ Scenario: Resharing a nsfw post
   And "tommy@pr0nking.com" has a public post with text "Sexy Senators Gone Wild!"
   And I sign in as "laura@officeworkers.com"
   And I toggle nsfw posts
-  And I follow "Reshare"
+  And I click on selector "a.reshare"
   And I confirm the alert
   And I go to the home page
   Then I should not see "Sexy Senators Gone Wild!"

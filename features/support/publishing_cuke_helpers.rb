@@ -32,6 +32,13 @@ module PublishingCukeHelpers
     expect(find('#main_stream')).to have_content(txt)
   end
 
+  def preview_post
+    txt = find('#publisher #status_message_fake_text').value
+    find('#publisher .post_preview_button').click
+    # wait for the content to appear
+    expect(find('#main_stream')).to have_content(txt)
+  end
+
   def click_and_post(text)
     click_publisher
     make_post(text)

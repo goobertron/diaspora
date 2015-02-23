@@ -13,7 +13,7 @@ Feature: Posting from the tag page
       Given I expand the publisher
       And I have turned off jQuery effects
       And I append "I like cats." to the publisher
-      And I press "Share"
+      And I submit the publisher
 
       Then "#cats I like cats." should be post 1
 
