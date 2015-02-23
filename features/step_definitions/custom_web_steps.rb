@@ -76,17 +76,6 @@ Then /^the text area wrapper mobile should be with attachments$/ do
   find("#publisher_textarea_wrapper")["class"].should include("with_attachments")
 end
 
-And /^I mention (?:him|her) $/ do |profile|
-  find('#mention_button').click
-end
-
-And /^I want to mention (?:him|her) from the profile$/ do
-  find('#mention_button').click
-  within('#mentionModal') do
-    click_publisher
-  end
-end
-
 And /^I hover over the "([^"]+)"$/ do |element|
   find("#{element}", match: :first).hover
 end
@@ -130,18 +119,6 @@ end
 
 And /^I reject the alert$/ do
   page.driver.browser.switch_to.alert.dismiss
-end
-
-When /^(.*) in the modal window$/ do |action|
-  within('#facebox') do
-    step action
-  end
-end
-
-When /^(.*) in the mention modal$/ do |action|
-  within('#mentionModal') do
-    step action
-  end
 end
 
 When /^I press the first "([^"]*)"(?: within "([^"]*)")?$/ do |link_selector, within_selector|
