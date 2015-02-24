@@ -19,10 +19,10 @@ Feature: editing the profile in the mobile view
     And I fill in "profile[tag_string]" with "#starwars"
     And I press the first ".as-result-item" within ".as-results"
 
-    And I press "Update profile"
+    And I click on selector "#update_profile"
 
     Then I should be on my edit profile page
-    And I should see "Profile updated"
+    And I should see the text for "profiles.update.updated"
     And the "profile_gender" field should contain "Fearless"
     And the "profile_first_name" field should contain "Boba"
     And the "profile_last_name" field should contain "Fett"
@@ -36,11 +36,11 @@ Feature: editing the profile in the mobile view
     When I fill in "profile[tag_string]" with "#kamino"
     And I press the first ".as-result-item" within ".as-results"
 
-    And I press "Update profile"
+    And I click on selector "#update_profile"
     Then I should see "#kamino" within "ul#as-selections-tags"
     And I should see "#starwars" within "ul#as-selections-tags"
 
     When I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
     And I confirm the alert
     And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
-    Then I should see a "img" within "#profile_photo_upload"
+    Then I should see an "img" within "#profile_photo_upload"

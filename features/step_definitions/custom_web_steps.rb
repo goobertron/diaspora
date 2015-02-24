@@ -211,15 +211,15 @@ When /^I resize my window to 800x600$/ do
   JS
 end
 
-Then 'I should see an image attached to the post' do
+Then /^I should see an image attached to the post$/ do
   step %{I should see a "img" within ".stream_element div.photo_attachments"}
 end
 
-Then 'I press the attached image' do
+Then /^I press the attached image$/ do
   step %{I press the 1st "img" within ".stream_element div.photo_attachments"}
 end
 
-And "I wait for the popovers to appear" do
+And /^I wait for the popovers to appear$/ do
   page.should have_selector(".popover", count: 3)
 end
 

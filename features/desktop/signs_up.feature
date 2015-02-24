@@ -6,7 +6,7 @@ Feature: new user registration
     And I fill in the new user form
     And I submit the form
     Then I should be on the getting started page
-    Then I should see the 'getting started' contents
+    And I should see the 'getting started' contents
 
   Scenario: new user goes through the setup wizard
     When I fill in the following:
@@ -21,17 +21,19 @@ Feature: new user registration
     When I fill in the following:
       | profile_first_name | <script>alert(0)// |
     And I focus the "follow_tags" field
-    Then I should see a flash message containing "Hey, <script>alert(0)//!"
+    Then I should see a flash message containing the text for "javascripts.getting_started.hey"
+    And I should see a flash message containing "<script>alert(0)//"
 
   Scenario: new user does not add any tags in setup wizard and cancel the alert
     When I fill in the following:
       | profile_first_name | some name     |
     And I focus the "follow_tags" field
-    Then I should see a flash message containing "Hey, some name!"
+    Then I should see a flash message containing the text for "javascripts.getting_started.hey"
+    And I should see a flash message containing "some name"
     When I follow "awesome_button"
     And I reject the alert
     Then I should be on the getting started page
-    And I should see a flash message containing "All right, I’ll wait."
+    And I should see a flash message containing the text for "javascripts.getting_started.alright_ill_wait"
 
   Scenario: new user skips the setup wizard
     When I follow "awesome_button"
@@ -44,7 +46,7 @@ Feature: new user registration
     And I confirm the alert
     Then I should be on the stream page
     When I submit the publisher
-    Then "Hey everyone, I’m #newhere." should be post 1
+    Then I should see the text for "shared.publisher.new_user_prefill.hello"
 
   Scenario: new user with some tags posts first status message
     When I fill in the following:
@@ -54,7 +56,8 @@ Feature: new user registration
     And I follow "awesome_button"
     Then I should be on the stream page
     When I submit the publisher
-    Then "Hey everyone, I’m #newhere. I’m interested in #rockstar." should be post 1
+    Then I should see the text for "shared.publisher.new_user_prefill.hello"
+    And I should see the text for "shared.publisher.new_user_prefill.i_like"
 
   Scenario: closing a popover clears getting started
     When I follow "awesome_button"
@@ -64,14 +67,14 @@ Feature: new user registration
     And I wait for the popovers to appear
     And I click close on all the popovers
     And I close the publisher
-    Then I should not see "Welcome to diaspora*"
+    Then I should not see the text for "aspects.index.welcome_to_diaspora"
 
   Scenario: user fills in bogus data - client side validation
     When I log out manually
     And I go to the new user registration page
     And I fill in the following:
         | user_username        | $%&(/&%$&/=)(/    |
-    And I press "Continue"
+    And I submit the form
     Then I should not be able to sign up
     And I should have a validation error on "user_username, user_password, user_email"
 

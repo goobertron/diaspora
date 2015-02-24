@@ -25,20 +25,19 @@ Feature: Unfollowing
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
 
-    Then I should not see "is sharing with you."
+    Then I should not see the text for "javascripts.people.is_sharing"
 
   Scenario: stop following someone while on the contacts page
-    When I go to the home page
-    And I go to the contacts page
+    When I go to the contacts page
 
     And I follow "Besties"
 
     And I remove the first person from the aspect
 
-    When I follow "My contacts"
+    When I click on selector ".all_aspects"
     Then I should have 0 contacts in "Besties"
 
     When I sign out
     And I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
-    Then I should not see "is sharing with you."
+    Then I should not see the text for "javascripts.people.is_sharing"

@@ -23,7 +23,7 @@ Feature: posting from the mobile main page
       Given I visit the mobile publisher page
       And I append "I am eating yogurt" to the mobile publisher
       And I select "Unicorns" from "aspect_ids_"
-      And I press "Share"
+      And I submit the mobile publisher
       When I visit the mobile stream page
       Then I should see "I am eating yogurt"
       When I click on selector "a.remove"
@@ -35,13 +35,13 @@ Feature: posting from the mobile main page
       When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload-publisher"
       Then I should see an uploaded image within the photo drop zone
       And I should see "button.png completed"
-      When I press "Share"
-      When I visit the mobile stream page
-      Then I should see a "img" within ".stream_element div.photo_attachments"
+      And I submit the mobile publisher
+      And I visit the mobile stream page
+      Then I should see an "img" within ".stream_element div.photo_attachments"
       When I log out
       And I sign in as "alice@alice.alice" on the mobile website
-      When I visit the mobile stream page
-      Then I should see a "img" within ".stream_element div.photo_attachments"
+      And I visit the mobile stream page
+      Then I should see an "img" within ".stream_element div.photo_attachments"
 
     Scenario: back out of posting a photo-only post
       Given I visit the mobile publisher page

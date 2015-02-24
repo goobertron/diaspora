@@ -33,3 +33,8 @@ end
 When /^I open the drawer$/ do
   find('#menu_badge').click
 end
+
+When /^I submit the mobile publisher$/ do
+  find('#publisher_mobile .primary').click
+end
+

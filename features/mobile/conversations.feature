@@ -24,4 +24,4 @@ Feature: private conversations mobile
     Then I should see "hey, how you doing?"
     When I click on selector "a.remove"
     And I confirm the alert
-    Then I should not see "hey, how you doing"
+    Then I should not see "hey, how you doing?"

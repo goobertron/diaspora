@@ -80,9 +80,9 @@
                   = search_field_tag "q", nil, id: "q", placeholder: t("search"), results: "5", autocomplete: "off", class: "ac_input"
           %nav
             %ul
-              %li
+              %li#my_activity
                 = link_to t("streams.activity.title"), activity_stream_path
-              %li
+              %li#mentions
                 = link_to t("streams.mentions.title"), mentioned_stream_path
               %li#all_aspects
                 = link_to t('streams.aspects.title'), "#"
@@ -98,17 +98,17 @@
                   - current_user.followed_tags.each do |tag|
                     %li
                       = tag_link(tag)
-              %li
+              %li#profile
                 = link_to user_profile_path(current_user.username) do
                   = t('layouts.header.profile')
                   = person_image_tag(current_user)
-              %li
+              %li#contacts
                 = link_to t('_contacts'), contacts_path
-              %li
+              %li#settings
                 = link_to t('layouts.header.settings'), users_edit_path
-              %li
+              %li#toggle
                 = link_to t('layouts.application.toggle'), toggle_mobile_path
-              %li
+              %li#sign_out
                 = link_to t('layouts.header.logout'), destroy_user_session_path, method: :delete
 
       #main{:role => "main"}
