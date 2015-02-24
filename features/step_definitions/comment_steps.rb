@@ -27,7 +27,3 @@ When /^I comment a lot on "([^"]*)"$/ do |post_text|
     end
   end
 end
-
-And /^I submit the comment$/ do 
-  make_comment
-end

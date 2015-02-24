@@ -38,3 +38,7 @@ When /^I submit the mobile publisher$/ do
   find('#publisher_mobile .primary').click
 end
 
+When /^I submit the mobile comment$/ do
+  find('.primary').click
+end
+

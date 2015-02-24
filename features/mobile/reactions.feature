@@ -15,12 +15,12 @@ Feature: reactions mobile post
     And I sign in as "bob@bob.bob" on the mobile website
 
   Scenario: like on a mobile post
-    When I should see "No reactions" within ".show_comments"
+    When I should see the text for "reactions.zero" within ".show_comments"
     And I click on selector "span.show_comments"
     And I click on selector "a.image_link.like_action.inactive"
     Then I should see a "a.image_link.like_action.active"
     When I go to the stream page
-    And I should see "1 reaction" within ".show_comments"
+    And I should see the text for "reactions.one" within ".show_comments"
     And I click on selector "a.show_comments"
     Then I should see "1" within ".like_count"
 
@@ -28,13 +28,13 @@ Feature: reactions mobile post
     When I click on selector "a.image_link.comment_action.inactive"
     And I fill in the following:
         | text            | is that a poodle?    |
-    And I press "Comment"
+    And I submit the mobile comment
     Then I should see "is that a poodle?"
     When I go to the stream page
-    And I should see "1 reaction" within ".show_comments"
+    And I should see the text for "reactions.one" within ".show_comments"
     And I click on selector "a.show_comments"
     And I should see "1" within ".comment_count"
     When I click on selector "a.image_link.comment_action.inactive"
     And I click on selector "a.remove"
     And I confirm the alert
-    Then I should not see "1 reaction" within ".show_comments"
+    Then I should not see the text for "reactions.one" within ".show_comments"
