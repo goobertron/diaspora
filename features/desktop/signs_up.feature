@@ -21,19 +21,20 @@ Feature: new user registration
     When I fill in the following:
       | profile_first_name | <script>alert(0)// |
     And I focus the "follow_tags" field
-    Then I should see a flash message containing the text for "javascripts.getting_started.hey"
-    And I should see a flash message containing "<script>alert(0)//"
+    Then I should see the text for "javascripts.getting_started.hey" within ".flash_message"
+    And I should see "<script>alert(0)//"
 
   Scenario: new user does not add any tags in setup wizard and cancel the alert
     When I fill in the following:
       | profile_first_name | some name     |
     And I focus the "follow_tags" field
-    Then I should see a flash message containing the text for "javascripts.getting_started.hey"
-    And I should see a flash message containing "some name"
+    Then I should see the text for "javascripts.getting_started.hey" within ".flash_message"
+    And I should see "some name"
     When I follow "awesome_button"
     And I reject the alert
     Then I should be on the getting started page
-    And I should see a flash message containing the text for "javascripts.getting_started.alright_ill_wait"
+    Then I should see the text for "javascripts.getting_started.alright_ill_wait"" within ".flash_message"
+
 
   Scenario: new user skips the setup wizard
     When I follow "awesome_button"

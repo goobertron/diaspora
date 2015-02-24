@@ -17,7 +17,7 @@ Feature: User manages contacts
     Given I am signed in
     And I go to the aspects page
 
-    When I click on selector "#add_aspect"
+    When I follow "Add an aspect"
     And I fill in "Name" with "losers" in the modal window
     And I submit the form in the modal window
     Then I should see "losers" within "#aspect_nav"

@@ -62,7 +62,7 @@ Feature: commenting
     When I focus the comment field
     And I fill in the following:
         | text            | I think that’s a cat    |
-    And I press "Comment"
+    And I submit the comment
     Then I should see "I think that’s a cat" within ".comment:last-child"
     When I follow "less than a minute ago" within ".comment:last-child"
     Then I should see "I think that’s a cat" within ".comment .highlighted"
@@ -76,7 +76,7 @@ Feature: commenting
     When I focus the comment field
     And I fill in the following:
         | text            | I think that’s a cat    |
-    And I press "Comment"
+    And I submit the comment
     When I follow "less than a minute ago" within "span.details.grey"
     Then I should see "I think that’s a cat" within ".comments .comment:last-child"
     When I follow "less than a minute ago" within ".comments .comment:last-child"

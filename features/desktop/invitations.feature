@@ -40,13 +40,13 @@ Feature: Invitations
       And I close the publisher
       And I log out
       And I sign in as "bob@bob.bob"
-      And I follow "Invite someone"
+      And I click on selector "#invite_email"
       Then I should see one less invite
 
     Scenario: sends an invitation
       Given a user with email "bob@bob.bob"
       When I sign in as "bob@bob.bob"
-      And I follow "Invite someone"
+      And I click on selector "#invite_email"
       And I fill in the following:
         | email_inviter_emails         | alex@example.com    |
       And I submit the form

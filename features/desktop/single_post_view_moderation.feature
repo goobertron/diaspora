@@ -50,7 +50,7 @@
     And I click to report the post
     And I confirm the alert
     
-    And I should see a flash message containing the text for "javascripts.report.status.created"
+    And I should see the text for "javascripts.report.status.created" within ".flash_message"
     
   Scenario: delete own post
     Given I expand the publisher
