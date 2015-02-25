@@ -15,7 +15,7 @@
     When I write the status message "Here is a post to test with"
     And I submit the publisher
 
-    And I log out
+    And I sign out
     And I sign in as "alice@alice.alice"
     
     And I open the show page of the "Here is a post to test with" post
@@ -29,7 +29,7 @@
     When I write the status message "Here is a post to test with"
     And I submit the publisher
 
-    And I log out
+    And I sign out
     And I sign in as "alice@alice.alice"
     
     And I open the show page of the "Here is a post to test with" post
@@ -43,7 +43,7 @@
     When I write the status message "Here is a post to test with"
     And I submit the publisher
 
-    And I log out
+    And I sign out
     And I sign in as "alice@alice.alice"
     
     And I open the show page of the "Here is a post to test with" post

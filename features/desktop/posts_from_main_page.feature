@@ -79,7 +79,7 @@ Feature: posting from the main page
       And I go to the aspects page
       Then I should see an "img" within ".stream_element div.photo_attachments"
       And I should see "Look at this dog" within ".stream_element"
-      When I log out
+      When I sign out
       And I sign in as "alice@alice.alice"
       And I go to "bob@bob.bob"'s page
       Then I should see an "img" within ".stream_element div.photo_attachments"
@@ -93,7 +93,7 @@ Feature: posting from the main page
       Then I should see an "img" within ".stream_element div.photo_attachments"
       When I go to the aspects page
       Then I should see an "img" within ".stream_element div.photo_attachments"
-      When I log out
+      When I sign out
       And I sign in as "alice@alice.alice"
       And I go to "bob@bob.bob"'s page
       Then I should see an "img" within ".stream_element div.photo_attachments"
@@ -132,7 +132,7 @@ Feature: posting from the main page
       When I write the status message "Here is a post for you to hide"
       And I submit the publisher
 
-      And I log out
+      And I sign out
       And I sign in as "alice@alice.alice"
       And I am on "bob@bob.bob"'s page
 

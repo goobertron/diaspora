@@ -18,11 +18,9 @@ Feature: Notifications
     When I sign in as "alice@alice.alice"
     And I follow "Notifications" in the header
     Then the notification dropdown should be visible
-    And I should see "Robert"
-    And I should see the text for "notifications.started_sharing.sharing"
+    And I should see the text for "notifications.started_sharing.one"
     And I go to the notifications page
-    And I should see "Robert"
-    And I should see the text for "notifications.started_sharing.sharing"
+    And I should see the text for "notifications.started_sharing.one"
     And I should have 1 email delivery
 
   Scenario: someone re-shares my post
@@ -60,13 +58,13 @@ Feature: Notifications
     And I focus the comment field
     And I fill in the following:
         | text        | great post!    |
-    And I press "Comment"
+    And I submit the comment
     Then I should see "less than a minute ago" within ".comment"
     And I sign out
     When I sign in as "alice@alice.alice"
     And I follow "Notifications" in the header
     Then the notification dropdown should be visible
-    Then I should see the text for "notifications.commented.one"
+    Then I should see the text for "notifications.comment_on_post.one"
     And I should have 1 email delivery
 
   Scenario: someone mentioned me in their post

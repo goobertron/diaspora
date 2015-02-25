@@ -7,7 +7,7 @@ Feature: Browsing Diaspora as a logged out user
     Background:
       Given a user named "Bob Jones" with email "bob@bob.bob"
       And "bob@bob.bob" has a public post with text "public stuff"
-      And I log out
+      And I sign out
 
     Scenario: Visiting a profile page
       When I am on "bob@bob.bob"'s page

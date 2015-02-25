@@ -21,19 +21,17 @@ Feature: new user registration
     When I fill in the following:
       | profile_first_name | <script>alert(0)// |
     And I focus the "follow_tags" field
-    Then I should see the text for "javascripts.getting_started.hey" within ".flash_message"
-    And I should see "<script>alert(0)//"
+    Then I should see a flash message containing the text for "javascripts.getting_started.hey"
 
   Scenario: new user does not add any tags in setup wizard and cancel the alert
     When I fill in the following:
       | profile_first_name | some name     |
     And I focus the "follow_tags" field
-    Then I should see the text for "javascripts.getting_started.hey" within ".flash_message"
-    And I should see "some name"
+    Then I should see a flash message containing the text for "javascripts.getting_started.hey" "some name"
     When I follow "awesome_button"
     And I reject the alert
     Then I should be on the getting started page
-    Then I should see the text for "javascripts.getting_started.alright_ill_wait"" within ".flash_message"
+    Then I should see a flash message containing the text for "javascripts.getting_started.alright_ill_wait"
 
 
   Scenario: new user skips the setup wizard
@@ -71,7 +69,7 @@ Feature: new user registration
     Then I should not see the text for "aspects.index.welcome_to_diaspora"
 
   Scenario: user fills in bogus data - client side validation
-    When I log out manually
+    When I sign out manually
     And I go to the new user registration page
     And I fill in the following:
         | user_username        | $%&(/&%$&/=)(/    |

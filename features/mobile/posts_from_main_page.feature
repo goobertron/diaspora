@@ -38,7 +38,7 @@ Feature: posting from the mobile main page
       And I submit the mobile publisher
       And I visit the mobile stream page
       Then I should see an "img" within ".stream_element div.photo_attachments"
-      When I log out
+      When I sign out
       And I sign in as "alice@alice.alice" on the mobile website
       And I visit the mobile stream page
       Then I should see an "img" within ".stream_element div.photo_attachments"

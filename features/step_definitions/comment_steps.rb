@@ -27,3 +27,7 @@ When /^I comment a lot on "([^"]*)"$/ do |post_text|
     end
   end
 end
+
+When /^I submit the comment$/ do
+  click_button("Comment")
+end

@@ -9,7 +9,7 @@ Feature: Browsing Diaspora as a logged out user mobile
       And "bob@bob.bob" has a public post with text "public stuff"
       And I sign in as "bob@bob.bob"
       And I comment "this also" on "public stuff"
-      And I log out
+      And I sign out
 
     Scenario: Visiting a profile page
       When I toggle the mobile view

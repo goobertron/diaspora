@@ -57,8 +57,7 @@ Feature: following and being followed
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
     And I add the person to my "Besties" aspect
-    Then I should see the text for "javascripts.aspect_dropdown.started_sharing_with" within ".flash_message"
-    And I should see a flash message containing "<script>alert(0)//"
+    Then I should see a flash message containing the text for "javascripts.aspect_dropdown.started_sharing_with"
 
   Scenario: seeing non-public posts of someone you follow who also follows you
     When I sign in as "alice@alice.alice"

@@ -38,7 +38,7 @@ Feature: Invitations
       And I confirm the alert
       Then I should be on the stream page
       And I close the publisher
-      And I log out
+      And I sign out
       And I sign in as "bob@bob.bob"
       And I click on selector "#invite_email"
       Then I should see one less invite

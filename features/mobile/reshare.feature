@@ -38,11 +38,11 @@ Feature: resharing from the mobile
     And the post with text "Don't reshare this!" is reshared by "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
     When I click to delete the first post
-    And I log out
+    And I sign out
     And I sign in as "bob@bob.bob"
     And I toggle the mobile view
     Then I should see the text for "reshares.reshare.deleted" within ".reshare"
-    And I log out
+    And I sign out
     And I sign in as "eve@eve.eve" on the mobile website
     And I toggle the mobile view
     Then I should see the text for "reshares.reshare.deleted" within ".reshare"

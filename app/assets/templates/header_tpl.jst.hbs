@@ -80,9 +80,9 @@
     <li class="user-menu-item" id="settings"><a href="/user/edit">{{t "header.settings"}}</a></li>
     <li class="user-menu-item" id="help"><a href="/help">{{t "header.help"}}</a></li>
     {{#if current_user.admin}}
-      <li class="user-menu-item"><a href="/admins/user_search">{{t "header.admin"}}</a></li>
+      <li class="user-menu-item" id="admin"><a href="/admins/user_search">{{t "header.admin"}}</a></li>
     {{/if}}
-    <li class="user-menu-item"><a href="/users/sign_out" data-method="delete">{{t "header.log_out"}}</a></li>
+    <li class="user-menu-item" id="log_out"><a href="/users/sign_out" data-method="delete">{{t "header.log_out"}}</a></li>
   </ul>
 
 

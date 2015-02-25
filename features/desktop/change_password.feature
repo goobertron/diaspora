@@ -18,7 +18,7 @@ Feature: Change password
     And I submit the forgot password form
     Then I should see the text for "devise.passwords.send_instructions"
     When I follow the "devise.mailer.reset_password_instructions.change" link from the last sent email
-    Then I should see the text for "devise.passwords.edit.change_password"
+    Then I should see the text for "devise.passwords.edit.new_password"
     When I fill out the reset password form with "supersecret" and "supersecret"
     And I submit the reset password form
     Then I should be on the stream page

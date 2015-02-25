@@ -20,7 +20,7 @@ Feature: public repost
     And I click on selector "a.reshare"
     And I confirm the alert
     Then I should see a flash message indicating success
-    And I should see a flash message containing "successfully"
+    And I should see a flash message containing the text for "javascripts.reshares.successful"
 
   Scenario: Resharing a post from a single post page that is reshared
     Given "bob@bob.bob" has a public post with text "reshare this!"
@@ -31,7 +31,7 @@ Feature: public repost
     And I click on selector "a.reshare"
     And I confirm the alert
     Then I should see a flash message indicating success
-    And I should see a flash message containing "successfully"
+    And I should see a flash message containing the text for "javascripts.reshares.successful"
 
   # should be covered in rspec, so testing that the post is added to
   # app.stream in jasmine should be enough coverage
@@ -42,5 +42,5 @@ Feature: public repost
     And I click on selector "a.reshare"
     And I confirm the alert
     Then I should see a flash message indicating success
-    And I should see a flash message containing "successfully"
+    And I should see a flash message containing the text for "javascripts.reshares.successful"
     And I should not see a ".reshare" within ".feedback"

@@ -54,7 +54,7 @@ Feature: commenting
     When I go to "alice@alice.alice"'s page
     Then I should see "I think that’s a cat"
 
-  Scenario: permalink to comment from within a users stream
+  Scenario: permalink to comment from within a user's stream
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
     Then I should see "Look at this dog"
