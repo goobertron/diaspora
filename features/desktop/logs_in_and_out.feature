@@ -8,6 +8,5 @@ Feature: user authentication
 
   Scenario: user logs out
     Given I am signed in
-    And I click on my name in the header
-    And I follow "Log out"
+    And I sign out manually
     Then I should be on the new user session page

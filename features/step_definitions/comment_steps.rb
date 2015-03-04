@@ -29,5 +29,7 @@ When /^I comment a lot on "([^"]*)"$/ do |post_text|
 end
 
 When /^I submit the comment$/ do
-  click_button("Comment")
+  with_scope(".comments .bd .submit_button") do
+    current_scope.find(:css, ".creation").click
+  end
 end

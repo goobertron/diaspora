@@ -133,13 +133,25 @@ When /^I press the ([\d])(?:nd|rd|st|th) "([^\"]*)"(?: within "([^\"]*)")?$/ do 
   end
 end
 
+When /^I press the "([^\"]*)" button(?: within "([^\"]*)")?$/ do |button, selector|
+  with_scope(selector) do
+    current_scope.find(:css, button).click
+  end
+end
+
+When /^I follow the "([^\"]*)" link(?: within "([^\"]*)")?$/ do |link, selector|
+  with_scope(selector) do
+    current_scope.find(:css, link+" a").click
+  end
+end
+
 Then /^(?:|I )should see (?:a|an) "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
   with_scope(scope_selector) do
     current_scope.should have_css selector
   end
 end
 
-Then /^(?:|I )should not see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
+Then /^(?:|I )should not see (?:a|an) "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
   with_scope(scope_selector) do
     current_scope.should have_no_css(selector, :visible => true)
   end

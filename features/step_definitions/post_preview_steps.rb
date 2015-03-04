@@ -7,3 +7,6 @@ Then /^the preview should not be collapsed$/ do
   find(".post_preview").should have_selector('.opened')
 end
 
+And /^I preview the post$/ do
+  preview_post
+end
