@@ -25,7 +25,7 @@ module UserCukeHelpers
   def login_as(user, pass)
     fill_in 'user_username', :with=>user
     fill_in 'user_password', :with=>pass
-    click_button "Sign in"
+    click_button I18n.t('devise.sessions.new.sign_in')
   end
 
   # create a new @me user, if not present, and log in using the

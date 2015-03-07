@@ -7,7 +7,7 @@ Feature: New user registration
   Background:
     Given I toggle the mobile view
     And I am on the login page
-    And I follow "Sign up"
+    And I click on selector "#sign_in"
 
   Scenario: user signs up and goes to getting started
     When I fill in the new user form

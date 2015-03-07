@@ -41,5 +41,6 @@ Feature: private conversations
     And I am on the conversations page
     Then I should see "Greetings" within "#conversation_inbox"
 	When I press the first ".conversation" within ".conversations"
-    And I click on the hide button
+    And I press the ".close_conversation" button
+    And I confirm the alert
     Then I should not see "Greetings" within "#conversation_inbox"

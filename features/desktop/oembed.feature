@@ -20,25 +20,25 @@ Feature: oembed
   Scenario: Post an unsecure video link
     Given I expand the publisher
     When I click the publisher and post "http://mytube.com/watch?v=M3r2XDceM6A&format=json"
-    And I follow "My aspects"
+    And I click on selector ".all_aspects"
     Then I should not see a video player
     And I should see "http://mytube.com/watch?v=M3r2XDceM6A&format=json" within ".stream_element"
 
   Scenario: Post an unsecure rich-typed link
     Given I expand the publisher
     When I click the publisher and post "http://myrichtube.com/watch?v=M3r2XDceM6A&format=json"
-    And I follow "My aspects"
+    And I click on selector ".all_aspects"
     Then I should not see a video player
     And I should see "http://myrichtube.com/watch?v=M3r2XDceM6A&format=json" within ".stream_element"
 
   Scenario: Post a photo link
     Given I expand the publisher
     When I click the publisher and post "http://farm4.static.flickr.com/3123/2341623661_7c99f48bbf_m.jpg"
-    And I follow "My aspects"
+    And I click on selector ".all_aspects"
     Then I should see an "img" within ".stream_element"
 
   Scenario: Post an unsupported text link
     Given I expand the publisher
     When I click the publisher and post "http://www.we-do-not-support-oembed.com/index.html"
-    And I follow "My aspects"
+    And I click on selector ".all_aspects"
     Then I should see "http://www.we-do-not-support-oembed.com/index.html" within ".stream_element"

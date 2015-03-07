@@ -4,7 +4,7 @@ Feature: editing the getting started in the mobile view
   Background:
     Given I toggle the mobile view
     And I am on the login page
-    When I follow "Sign up"
+    When I click on selector "#sign_in"
     And I fill in the new user form
     And I submit the form
     Then I should be on the getting started page

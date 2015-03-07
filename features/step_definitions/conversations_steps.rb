@@ -11,7 +11,7 @@ Then /^I send a message with subject "([^"]*)" and text "([^"]*)" to "([^"]*)"$/
     step %(I press the first ".as-result-item" within ".as-results")
     step %(I fill in "conversation_subject" with "#{subject}")
     step %(I fill in "conversation_text" with "#{text}")
-    step %(I press "Send")
+    step %(I press the ".creation" button)
   end
 end
 
@@ -19,7 +19,7 @@ When /^I reply with "([^"]*)"$/ do |text|
   step %(I am on the conversations page)
   step %(I press the first ".conversation" within ".conversations")
   step %(I fill in "message_text" with "#{text}")
-  step %(I press "Reply")
+  step %(I press the ".creation" button)
 end
 
 Then /^I send a mobile message with subject "([^"]*)" and text "([^"]*)" to "([^"]*)"$/ do |subject, text, person|
@@ -29,16 +29,9 @@ Then /^I send a mobile message with subject "([^"]*)" and text "([^"]*)" to "([^
   step %(I press the first ".as-result-item" within ".as-results")
   step %(I fill in "conversation_subject" with "#{subject}")
   step %(I fill in "conversation_text" with "#{text}")
-  step %(I press "Send")
+  step %(I press the ".creation" button)
 end
 
 Then /^I should see "([^"]*)" as a participant$/ do |name|
   find(".conversation.stream_element img.avatar[title^='#{name}']").should_not be_nil
 end
-
-
-When /^I click on the hide button/ do
-  find(".stream_element", match: :first).hover
-  find(".close_conversation").click
-end
-

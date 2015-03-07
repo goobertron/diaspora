@@ -8,7 +8,7 @@ Feature: User manages contacts
     Given I am signed in
     And I am on the contacts page
  
-    When I follow "Add an aspect"
+    When I follow the ".new_aspect" link
     And I fill in "Name" with "Dorm Mates" in the modal window
     And I submit the form in the modal window
     Then I should see "Dorm Mates" within "#aspect_nav"
@@ -17,7 +17,7 @@ Feature: User manages contacts
     Given I am signed in
     And I go to the aspects page
 
-    When I follow "Add an aspect"
+    When I click on selector "#add_aspect"
     And I fill in "Name" with "losers" in the modal window
     And I submit the form in the modal window
     Then I should see "losers" within "#aspect_nav"
@@ -74,7 +74,7 @@ Feature: User manages contacts
     And I am on the home page
 
     When I click on my name in the header
-    And I click on selector "#contacts"
+    And I follow the "#contacts" link
     Then I should see the text for "aspects.no_contacts_message.community_spotlight" within ".span9"
 
   Scenario: clicking on the contacts link in the header with contacts does not send a user to the featured users page
@@ -83,5 +83,5 @@ Feature: User manages contacts
     And I am on the home page
 
     When I click on my name in the header
-    And I click on selector "#contacts"
+    And I follow the "#contacts" link
     Then I should not see the text for "aspects.no_contacts_message.community_spotlight" within ".span9"

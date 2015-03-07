@@ -199,7 +199,6 @@ Then /^I should have scrolled down on the notification dropdown$/ do
   page.evaluate_script("$('.notifications').scrollTop()").should > 0
 end
 
-
 Then /^the notification dropdown should be visible$/ do
   find(:css, "#notification_dropdown").should be_visible
 end

@@ -97,7 +97,7 @@ module PublishingCukeHelpers
 
   def like_post(post_text)
     within_post(post_text) do
-      click_link "Like"
+      click_link I18n.t('shared.stream_element.like')
     end
   end
 
@@ -127,7 +127,7 @@ module PublishingCukeHelpers
 
   def make_comment(text, elem="text")
     fill_in elem, :with => text
-    click_button "Comment"
+    click_button I18n.t('comments.new_comment.comment')
   end
 
   def focus_comment_box(elem="a.focus_comment_textarea")

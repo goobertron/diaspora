@@ -25,7 +25,7 @@ Feature: mentioning a contact from their profile page
       Given I am on "alice@alice.alice"'s page
       And I want to mention her from the profile
       And I append "I am eating a yogurt" to the publisher
-      And I press "Share" in the mention modal
+      And I press the ".creation" button in the mention modal
       Then I should see a flash message indicating success
       When I am on the aspects page
       And I follow "PostingTo" within "#aspects_list"
@@ -42,7 +42,7 @@ Feature: mentioning a contact from their profile page
       And I toggle the aspect "NotPostingThingsHere" in the mention modal
       And I press the aspect dropdown in the mention modal
       And I append "I am eating a yogurt" to the publisher
-      And I press "Share" in the mention modal
+      And I press the ".creation" button in the mention modal
       Then I should see a flash message indicating success
 
       When I am on the aspects page
