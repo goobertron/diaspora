@@ -5,10 +5,10 @@ Feature: Notifications
   I want to get notifications
 
   Background:
-    Given that following users exist:
-      | username    | email             |
-      | Alice Smith | alice@alice.alice |
-      | Bob Jones   | bob@bob.bob       |
+    Given That following users:
+      | email             |
+      | bob@bob.bob       |
+      | alice@alice.alice |
 
   Scenario: someone shares with me
     When I sign in as "bob@bob.bob"
@@ -18,9 +18,9 @@ Feature: Notifications
     When I sign in as "alice@alice.alice"
     And I click on selector "#notification_badge" in the header
     Then the notification dropdown should be visible
-    And I should the text for "notifications.started_sharing.one" in the notification dropdown
-    When I go to the notifications page
-    Then I should see the text for "notifications.started_sharing.one"
+    Then I should see "started sharing with you"
+    And I go to the notifications page
+    Then I should see "started sharing with you"
     And I should have 1 email delivery
 
   Scenario: someone re-shares my post
@@ -28,15 +28,13 @@ Feature: Notifications
     And "alice@alice.alice" has a public post with text "check this out!"
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
-    And I click on selector "a.reshare"
+    And I click on selector "a.reshare" within ".stream_element"
     And I confirm the alert
     And I sign out
     When I sign in as "alice@alice.alice"
     And I click on selector "#notification_badge" in the header
     Then the notification dropdown should be visible
-    And I should see the text for "notifications.reshared.one" in the notification dropdown
-    When I go to the notifications page
-    Then I should see the text for "notifications.reshared.one"
+    Then I should see "reshared your post"
     And I should have 1 email delivery
 
   Scenario: someone likes my post
@@ -44,14 +42,12 @@ Feature: Notifications
     And "alice@alice.alice" has a public post with text "check this out!"
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
-    And I click on selector "a.like"
+    And I click on selector "a.like" within ".stream_element"
     And I sign out
     When I sign in as "alice@alice.alice"
     And I click on selector "#notification_badge" in the header
     Then the notification dropdown should be visible
-    And I should see the text for "notifications.liked.one" in the notification dropdown
-    When I go to the notifications page
-    Then I should see the text for "notifications.liked.one"
+    Then I should see "liked your post"
     And I should have 1 email delivery
 
   Scenario: someone comments on my post
@@ -68,20 +64,16 @@ Feature: Notifications
     When I sign in as "alice@alice.alice"
     And I click on selector "#notification_badge" in the header
     Then the notification dropdown should be visible
-    And I should see the text for "notifications.comment_on_post.one" in the notification dropdown
-    When I go to the notifications page
-    Then I should see the text for "notifications.comment_on_post.one"
+    Then I should see "commented on your post"
     And I should have 1 email delivery
 
-  Scenario: someone mentioned me in their post
+  Scenario: someone mentions me in their post
     Given a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     And Alice has a post mentioning Bob
     When I sign in as "bob@bob.bob"
     And I click on selector "#notification_badge" in the header
     Then the notification dropdown should be visible
-    And I should see the text for "notifications.mentioned.one" in the notification dropdown
-    When I go to the notifications page
-    Then I should see the text for "notifications.mentioned.one"
+    Then I should see "mentioned you in the post"
     And I should have 1 email delivery
 
   Scenario: filter notifications
@@ -89,11 +81,11 @@ Feature: Notifications
     And Alice has a post mentioning Bob
     When I sign in as "bob@bob.bob"
     And I am on the notifications page
-    Then I should see the text for "notifications.mentioned.one"
+    Then I should see "mentioned you in the post"
     When I filter notifications by likes
-    Then I should not see the text for "notifications.mentioned.one"
+    Then I should not see "mentioned you in the post"
     When I filter notifications by mentions
-    Then I should see the text for "notifications.mentioned.one"
+    Then I should see "mentioned you in the post"
 
   Scenario: show aspect dropdown in user hovercard
     When I sign in as "bob@bob.bob"

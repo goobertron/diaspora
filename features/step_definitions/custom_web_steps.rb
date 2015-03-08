@@ -105,8 +105,10 @@ When /^I click to delete the first uploaded photo$/ do
   find("#photodropzone .x", match: :first).click
 end
 
-And /^I click on selector "([^"]*)"$/ do |selector|
-  find(selector).click
+And /^I click on selector "([^"]*)"(?: within "([^"]*)")?$/ do |link_selector, within_selector|
+  with_scope(within_selector) do
+    current_scope.find(link_selector).click
+  end
 end
 
 And /^I click on the first selector "([^"]*)"$/ do |selector|
